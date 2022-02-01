@@ -28,5 +28,6 @@ router.post('/', (req, res, next) => {
         })
         .catch(err => next(err))
 })
+console.log('hi')
 
 module.exports = router
