@@ -4,6 +4,10 @@ function getAll() {
     return db('users')
 }
 
+function getBy(filter) {
+    return db('users').where(filter)
+}
+
 function getById(id) {
     return db('users').where('user_id', id).first()
 }
@@ -13,4 +17,4 @@ async function add(user) {
     return newUser
 }
 
-module.exports = {getAll, getById, add}
+module.exports = {getAll, getBy, getById, add}
