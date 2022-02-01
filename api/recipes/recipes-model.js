@@ -16,4 +16,9 @@ function findById(id) {
     .first();
 }
 
-module.exports = { findAll, findById };
+async function add(newRecipe) {
+    const [added] = await db('recipes').insert(newRecipe, ['recipe_name'])  
+    return added
+}
+
+module.exports = { findAll, findById, add };

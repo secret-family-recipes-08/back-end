@@ -21,4 +21,12 @@ router.get('/:id', (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.post('/', (req, res, next) => {
+    Recipe.add(req.body)
+        .then(newRecipe => {
+            res.status(201).json(newRecipe)
+        })
+        .catch(err => next(err))
+})
+
 module.exports = router
