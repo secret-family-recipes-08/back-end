@@ -5,7 +5,7 @@ function getAll() {
 }
 
 function getBy(filter) {
-    return db('users').where({filter})
+    return db('users').where(filter)
 }
 
 function getById(id) {
