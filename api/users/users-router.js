@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("./users-model");
+const bcrypt = require('bcrypt')
 
 router.get("/", async (req, res, next) => {
   try {
@@ -23,8 +24,12 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.post("/register", (req, res, next) => {
+    let {username, password} = req.body
+    let user = {username, password}
+    const hash = bcrypt.hashSync(user.password, 8)
+    user.password = hash
   try {
-    User.add(req.body)
+    User.add(user)
       .then((newUser) => {
         res
           .status(201)
