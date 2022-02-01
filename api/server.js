@@ -4,7 +4,7 @@ const cors = require('cors')
 const db = require('./data/db-config')
 const usersRouter = require('./users/users-router')
 const recipesRouter = require('./recipes/recipes-router')
-
+const authRouter = require('./auth/auth-router')
 
 const server = express()
 server.use(express.json())
@@ -13,6 +13,7 @@ server.use(cors())
 
 server.use('/api/users', usersRouter)
 server.use('/api/recipes', recipesRouter)
+server.use('/api/auth', authRouter)
 
 // error catcher (default)
 server.use('/', (err, req, res, next) => { //eslint-disable-line
