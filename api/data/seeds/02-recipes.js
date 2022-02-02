@@ -1,21 +1,21 @@
 const users = [
-    { username: 'gordon', password: '1234' },
-    { username: 'anthony', password: 'asdf' },
-    { username: 'guy', password: 'flavortown' }
-]
+  { username: "gordon", password: "1234" },
+  { username: "anthony", password: "asdf" },
+  { username: "guy", password: "flavortown" },
+];
 
 const categories = [
-    { category_name: 'Breakfast' },
-    { category_name: 'Lunch' },
-    { category_name: 'Dinner' },
-    { category_name: 'Dessert' }
-]
+  { category_name: "Breakfast" },
+  { category_name: "Lunch" },
+  { category_name: "Dinner" },
+  { category_name: "Dessert" },
+];
 
 const sources = [
-    { source_name: 'Grandma Martha' },
-    { source_name: 'Aunt Rachael' },
-    { source_name: 'Uncle Marcus' }
-]
+  { source_name: "Grandma Martha" },
+  { source_name: "Aunt Rachael" },
+  { source_name: "Uncle Marcus" },
+];
 
 // const ingredients = [
 //     { ingredient_name: 'Broccoli', ingredient_unit: 'cups' },
@@ -26,9 +26,21 @@ const sources = [
 // ]
 
 const recipes = [
-    { recipe_name: 'Broccoli Pesto Pasta', source_id: 1, category_id: 3 },
-    { recipe_name: 'Spaghetti', source_id: 2, category_id: 2 }
-]
+  {
+    recipe_name: "Broccoli Pesto Pasta",
+    source_id: 1,
+    category_id: 3,
+    recipe_instructions: "rinse brocolli, boil water, cook pasta, cook broccoli, add pesto and salt, mix",
+    recipe_ingredients: "broccoli, pasta, pesto, salt",
+  },
+  {
+    recipe_name: "Spaghetti",
+    source_id: 2,
+    category_id: 2,
+    recipe_instructions: "boil water, cook spaghetti for 8 minutes, add sauce, mix",
+    recipe_ingredients: "spaghetti, tomato sauce",
+  },
+];
 
 // const instructions = [
 //     { instruction_number: 1, instruction_text: 'Boil pasta', recipe_id: 1 },
@@ -49,11 +61,11 @@ const recipes = [
 // ]
 
 exports.seed = async function (knex) {
-    await knex('users').insert(users)
-    await knex('categories').insert(categories)
-    await knex('sources').insert(sources)
-    // await knex('ingredients').insert(ingredients)
-    await knex('recipes').insert(recipes)
-    // await knex('instructions').insert(instructions)
-    // await knex('quantities').insert(quantities)
-}
+  await knex("users").insert(users);
+  await knex("categories").insert(categories);
+  await knex("sources").insert(sources);
+  // await knex('ingredients').insert(ingredients)
+  await knex("recipes").insert(recipes);
+  // await knex('instructions').insert(instructions)
+  // await knex('quantities').insert(quantities)
+};

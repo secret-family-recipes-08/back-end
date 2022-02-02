@@ -7,6 +7,8 @@ function findAll() {
     .select(
       "r.recipe_id",
       "r.recipe_name",
+      "r.recipe_instructions",
+      "r.recipe_ingredients",
       "c.category_id",
       "c.category_name",
       "s.source_id",
@@ -21,6 +23,8 @@ function findById(id) {
     .select(
       "r.recipe_id",
       "r.recipe_name",
+      "r.recipe_instructions",
+      "r.recipe_ingredients",
       "c.category_id",
       "c.category_name",
       "s.source_id",

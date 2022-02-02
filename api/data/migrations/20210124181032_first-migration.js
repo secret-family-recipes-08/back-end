@@ -18,6 +18,8 @@ exports.up = async (knex) => {
       table.increments("recipe_id");
       table.string("recipe_name", 256).notNullable().unique();
       table.string('recipe_img_url', 256);
+      table.text('recipe_instructions').notNullable();
+      table.text('recipe_ingredients').notNullable();
       table
         .integer("source_id")
         .unsigned()
