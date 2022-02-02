@@ -21,6 +21,7 @@ exports.up = async (knex) => {
     .createTable("recipes", (table) => {
       table.increments("recipe_id");
       table.string("recipe_name", 256).notNullable().unique();
+      table.string('recipe_img_url', 256);
       table
         .integer("source_id")
         .unsigned()
