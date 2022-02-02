@@ -9,6 +9,8 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
+
+
 router.get('/:id', (req, res, next) => {
     const {id} = req.params
     Recipe.findById(id)
@@ -28,5 +30,12 @@ router.post('/', (req, res, next) => {
         })
         .catch(err => next(err))
 })
+
+router.delete("/", (req, res) => {
+  Recipe.deleteById(req.payload)
+    .then(() => res.status(200).json({message:`recipe with id ${req.payload} was successfully deleted`}))
+    .catch(err => res.status(500).json({message:err.message, stack:err.stack, where:"deleting recipe"}));
+})
+
 
 module.exports = router

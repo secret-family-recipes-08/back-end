@@ -21,4 +21,8 @@ async function add(newRecipe) {
     return added
 }
 
-module.exports = { findAll, findById, add };
+
+
+const deleteById = id => db("recipes").where({ id }).del()
+
+module.exports = { findAll, findById, add, deleteById };

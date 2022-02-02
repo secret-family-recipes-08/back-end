@@ -17,4 +17,8 @@ async function add(user) {
     return newUser
 }
 
+const deleteById = id => db("users").where({ id }).del();
+
+
+
 module.exports = {getAll, getBy, getById, add}
