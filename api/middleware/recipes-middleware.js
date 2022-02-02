@@ -1,5 +1,5 @@
 function validateRecipe(req, res, next) {
-    const { recipe_name:title, source, recipe_ingredients: ingredients, recipe_instructions: instructions,  category_id:category } = req.body
+    const { recipe_name:title, source_id:source, recipe_ingredients: ingredients, recipe_instructions: instructions,  category_id:category } = req.body
     if (
         !title || !title.trim() || 
         !source || !source.trim() || 
@@ -7,7 +7,7 @@ function validateRecipe(req, res, next) {
         !instructions || !instructions.trim() || 
         !category || !category.trim()) {
             res.status(400).json({
-                message: 'all fields are required'
+                message: 'title, ingredients, instructions, source, and category are required'
             })
     } else {
         next()
