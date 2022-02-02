@@ -4,7 +4,7 @@ function findAll() {
   return db("recipes as r")
     .leftJoin("categories as c", "r.category_id", "c.category_id")
     .leftJoin("sources as s", "r.source_id", "s.source_id")
-    .leftJoin("instructions as instr", "r.recipe_id", "instr.recipe_id")    
+    .leftJoin("instructions as instr", "r.recipe_id", "instr.recipe_id")
     .select(
       "r.recipe_id",
       "r.recipe_name",
@@ -22,7 +22,7 @@ function findById(id) {
   return db("recipes as r")
     .leftJoin("categories as c", "r.category_id", "c.category_id")
     .leftJoin("sources as s", "r.source_id", "s.source_id")
-    .leftJoin("instructions as instr", "r.recipe_id", "instr.recipe_id")    
+    .leftJoin("instructions as instr", "r.recipe_id", "instr.recipe_id")
     .select(
       "r.recipe_id",
       "r.recipe_name",
@@ -34,8 +34,7 @@ function findById(id) {
       "instr.instruction_number",
       "instr.instruction_text"
     )
-    .where("r.recipe_id", id)
-    .first();
+    .where("r.recipe_id", id);
 }
 
 async function add(newRecipe) {
