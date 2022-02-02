@@ -33,9 +33,13 @@ function findById(id) {
     .where("r.recipe_id", id);
 }
 
+function findBy(filter) {
+  return db('recipes').where(filter)
+}
+
 async function add(newRecipe) {
   const [added] = await db("recipes").insert(newRecipe, ["recipe_name"]);
   return added;
 }
 
-module.exports = { findAll, findById, add };
+module.exports = { findAll, findById, findBy, add };
