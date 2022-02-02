@@ -4,6 +4,7 @@ exports.up = async (knex) => {
       users.increments("user_id");
       users.string("username", 200).notNullable().unique();
       users.string("password", 200).notNullable();
+      users.string('role', 64).defaultTo('user');
     })
     .createTable("categories", (table) => {
       table.increments("category_id");
