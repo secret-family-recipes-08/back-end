@@ -1,5 +1,5 @@
 function validateRecipe(req, res, next) {
-    const { title, source, ingredients, instructions, category } = req.body
+    const { recipe_name:title, source, recipe_ingredients: ingredients, recipe_instructions: instructions,  category_id:category } = req.body
     if (
         !title || !title.trim() || 
         !source || !source.trim() || 
