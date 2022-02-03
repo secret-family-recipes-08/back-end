@@ -20,7 +20,7 @@ router.post('/login', validateUser, checkUsernameExists, (req, res, next) => {
 })
 
 router.post("/validateToken", (req, res, next) => {
-    const token = req.body;
+    const {token} = req.body;
     if (token) {
         jwt.verify(token, JWT_SECRET, (err, decoded) => {
             if (err) {
