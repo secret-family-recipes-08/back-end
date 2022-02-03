@@ -4,4 +4,9 @@ function getAll() {
     return db('sources')
 }
 
-module.exports = {getAll}
+async function add(source) {
+    const [newSource] = await db('sources').insert(source, ['source_id', 'source_name']) 
+    return newSource
+}
+
+module.exports = {getAll, add}

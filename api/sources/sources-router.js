@@ -9,4 +9,12 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.post('/', (req, res, next) => {
+    Source.add(req.body)
+        .then(newSource => {
+            res.status(201).json(newSource)
+        })
+        .catch(err => next(err))
+})
+
 module.exports = router
