@@ -1,6 +1,7 @@
 const Recipe = require('./recipes-model')
 const router = require('express').Router()
-const {validateRecipe} = require('../middleware/recipes-middleware')
+const { validateRecipe } = require('../middleware/recipes-middleware')
+const {restricted} = require('../middleware/restricted')
 
 router.get('/', (req, res, next) => {
     Recipe.findAll()
