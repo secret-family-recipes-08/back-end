@@ -19,9 +19,10 @@ async function validateRecipe(req, res, next) {
     !instructions ||
     !instructions.trim() ||
     !category ||
-    !category.trim() ||
-    typeof category !== "number" ||
-    typeof source !== "number"
+    !category.trim()
+    // ||
+    // typeof category !== "number" ||
+    // typeof source !== "number"
   ) {
     res.status(400).json({
       message:
