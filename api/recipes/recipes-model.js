@@ -44,9 +44,9 @@ async function update(id, recipe) {
     recipe_name: recipe.recipe_name,
     recipe_instructions: recipe.recipe_instructions,
     recipe_ingredients: recipe.recipe_ingredients,
-    // category_id: recipe.category_id,
+    category_id: recipe.category_id,
     // category_name: recipe.category_name,
-    // source_id: recipe.source_id,
+    source_id: recipe.source_id,
     // source_name: recipe.source_name,
   })
   console.log("After: ", await findById(id))
