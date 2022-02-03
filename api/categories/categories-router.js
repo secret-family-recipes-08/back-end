@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const Category = require('./categories-model')
+const {restricted} = require('../middleware/restricted')
 
-router.get('/', (req, res, next) => {
+router.get('/', restricted, (req, res, next) => {
     Category.getAll()
         .then(categories => {
             res.status(200).json(categories)
@@ -9,7 +10,7 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', restricted, (req, res, next) => {
     Category.add(req.body)
         .then(newCat => {
             res.status(201).json(newCat)
