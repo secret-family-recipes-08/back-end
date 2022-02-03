@@ -19,18 +19,20 @@ async function validateRecipe(req, res, next) {
     !instructions ||
     !instructions.trim() ||
     !category ||
-    !category.trim()
+    !category.trim() ||
+    typeof category !== "number" ||
+    typeof source !== "number"
   ) {
     res.status(400).json({
       message:
         "title, ingredients, instructions, source, and category are required",
     });
   } else {
-      const [exists] = await Recipe.findBy({"recipe_name": title});
+    const [exists] = await Recipe.findBy({ recipe_name: title });
     if (!exists) {
       next();
     } else {
-        next({status: 400, message: 'recipe with this title already exists'})
+      next({ status: 400, message: "recipe with this title already exists" });
     }
   }
 }
