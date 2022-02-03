@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const Source = require('./sources-model')
+const {restricted} = require('../middleware/restricted')
 
-router.get('/', (req, res, next) => {
+router.get('/', restricted, (req, res, next) => {
     Source.getAll()
         .then(sources => {
             res.status(200).json(sources)
@@ -9,7 +10,7 @@ router.get('/', (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', restricted, (req, res, next) => {
     Source.add(req.body)
         .then(newSource => {
             res.status(201).json(newSource)
