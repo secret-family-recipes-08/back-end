@@ -9,6 +9,7 @@ function findAll() {
       "r.recipe_name",
       "r.recipe_instructions",
       "r.recipe_ingredients",
+      "r.recipe_img_url",
       "c.category_id",
       "c.category_name",
       "s.source_id",
@@ -25,12 +26,17 @@ function findById(id) {
       "r.recipe_name",
       "r.recipe_instructions",
       "r.recipe_ingredients",
+      "r.recipe_img_url",
       "c.category_id",
       "c.category_name",
       "s.source_id",
       "s.source_name"
     )
     .where("r.recipe_id", id)
+}
+
+function findBy(filter) {
+  return db('recipes').where(filter)
 }
 
 async function add(newRecipe) {
@@ -64,3 +70,4 @@ const deleteById = (id) => {
 }
 
 module.exports = { findAll, findById, add, deleteById, update }
+

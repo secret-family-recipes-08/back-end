@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const User = require("./users-model");
 const bcrypt = require('bcrypt')
-const {validateUser, checkUsernameFree} = require('../middleware/users-middleware')
+const { validateUser, checkUsernameFree } = require('../middleware/users-middleware')
+const {restricted} = require('../middleware/restricted')
 
-router.get("/", async (req, res, next) => {
+router.get("/", restricted, async (req, res, next) => {
   try {
     const users = await User.getAll();
     if (!users) {
@@ -16,7 +17,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", (req, res, next) => {
+router.get("/:id", restricted, (req, res, next) => {
   User.getById(req.params.id)
     .then((user) => {
       res.status(200).json(user);
