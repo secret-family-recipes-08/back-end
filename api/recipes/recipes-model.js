@@ -48,6 +48,7 @@ async function update(id, recipe) {
   console.log("Before: ", await findById(id))
   await db("recipes").where("recipe_id", id).update({
     recipe_name: recipe.recipe_name,
+    recipe_img_url: recipe.recipe_img_url,
     recipe_instructions: recipe.recipe_instructions,
     recipe_ingredients: recipe.recipe_ingredients,
     category_id: recipe.category_id,
