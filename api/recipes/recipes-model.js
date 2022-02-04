@@ -70,5 +70,5 @@ const deleteById = (id) => {
   return db("recipes").where("recipe_id", id).del()
 }
 
-module.exports = { findAll, findById, add, deleteById, update }
+module.exports = { findAll, findById, findBy, add, deleteById, update }
 
