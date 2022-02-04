@@ -21,9 +21,6 @@ router.get('/:id', restricted, (req, res, next) => {
             }
             res.status(200).json(recipe)
         })
-      }
-      res.status(200).json(recipe)
-    })
     .catch((err) => next(err))
 })
 
@@ -79,5 +76,7 @@ router.delete("/:id", restricted, (req, res, next) => {
       })
     })
     .catch((err) => next(err))
+})
+
 
 module.exports = router
