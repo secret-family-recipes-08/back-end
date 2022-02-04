@@ -53,7 +53,7 @@ router.post('/', restricted, validateRecipe, (req, res, next) => {
 //   }
 // };
 
-router.put("/:id", (req, res) => {
+router.put("/:id", restricted, (req, res) => {
   // res.send('Resquest to router put')
   console.log("ID: ", req.params.id)
   console.log("Body: ", req.body)
@@ -71,7 +71,7 @@ router.put("/:id", (req, res) => {
     })
 })
 
-router.delete("/:id", (req, res, next) => {
+router.delete("/:id", restricted, (req, res, next) => {
   Recipe.deleteById(req.params.id)
     .then(() => {
       res.status(200).json({
