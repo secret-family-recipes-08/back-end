@@ -12,14 +12,19 @@ async function validateRecipe(req, res, next) {
   if (
     !title ||
     !title.trim() ||
+    title === undefined ||
     !source ||
     !source.trim() ||
+    source === undefined || 
     !ingredients ||
     !ingredients.trim() ||
+    ingredients === undefined ||
     !instructions ||
     !instructions.trim() ||
+    instructions === undefined ||
     !category ||
-    !category.trim()
+    !category.trim() ||
+    category === undefined
     // ||
     // typeof category !== "number" ||
     // typeof source !== "number"
